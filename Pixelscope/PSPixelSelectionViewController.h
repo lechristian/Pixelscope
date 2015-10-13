@@ -1,5 +1,5 @@
 //
-//  PixelSelectionViewController.h
+//  PSPixelSelectionViewController.h
 //  Pixelscope
 //
 //  Created by Paul Moulton on 10/12/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PixelSelectionViewController : UIViewController
+@interface PSPixelSelectionViewController : UIViewController
 
 @end

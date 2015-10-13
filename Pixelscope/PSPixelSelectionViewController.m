@@ -1,26 +1,34 @@
 //
-//  PixelSelectionViewController.m
+//  PSPixelSelectionViewController.m
 //  Pixelscope
 //
 //  Created by Paul Moulton on 10/12/15.
 //  Copyright © 2015 innovativedesign. All rights reserved.
 //
 
-#import "PixelSelectionViewController.h"
+#import "PSPixelSelectionViewController.h"
 
-@interface PixelSelectionViewController ()
+@interface PSPixelSelectionViewController () <UIImagePickerControllerDelegate>
 
+@property UIImagePickerController *pickerController;
 @property UIImageView *pixelImageView;
 @property UITableView *presetsTableView;
 
 @end
 
-@implementation PixelSelectionViewController
+@implementation PSPixelSelectionViewController
 
 - (instancetype)init {
     if (self = [super init]) {
+        _pickerController = [[UIImagePickerController alloc] init];
         _pixelImageView = [[UIImageView alloc] init];
         _presetsTableView = [[UITableView alloc] init];
+        
+        // Add Gallery Selector
+        [_pixelImageView setUserInteractionEnabled:YES];
+        UITapGestureRecognizer *singleTap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_pickPhotoFromGallery)];
+        [singleTap setNumberOfTapsRequired:1];
+        [_pixelImageView addGestureRecognizer:singleTap];
         
         [self.view addSubview:_pixelImageView];
         [self.view addSubview:_presetsTableView];
@@ -34,6 +42,12 @@
     [super viewDidLoad];
 }
 
+
+- (void)_pickPhotoFromGallery {
+    self.pickerController.allowsEditing = NO;
+    self.pickerController.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    [self presentViewController:self.pickerController animated:YES completion:nil];
+}
 
 - (void)_installConstraints {
     NSDictionary *views = NSDictionaryOfVariableBindings(_pixelImageView, _presetsTableView);
