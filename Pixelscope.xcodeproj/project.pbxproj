@@ -12,6 +12,8 @@
 		AA4A7D871BCCA7F9008C78B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA4A7D861BCCA7F9008C78B8 /* Assets.xcassets */; };
 		AA4A7D8A1BCCA7F9008C78B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA4A7D881BCCA7F9008C78B8 /* LaunchScreen.storyboard */; };
 		AA4A7D921BCCAC90008C78B8 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = AA4A7D911BCCAC90008C78B8 /* Podfile */; settings = {ASSET_TAGS = (); }; };
+		BD1A46C91BCCC42D004951E9 /* PSStyling.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1A46C81BCCC42D004951E9 /* PSStyling.m */; settings = {ASSET_TAGS = (); }; };
+		BD1A46CC1BCCC67C004951E9 /* PSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1A46CB1BCCC67C004951E9 /* PSNavigationController.m */; settings = {ASSET_TAGS = (); }; };
 		BD5E778F1BCCAA3800287A08 /* PSPixelSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5E778E1BCCAA3800287A08 /* PSPixelSelectionViewController.m */; settings = {ASSET_TAGS = (); }; };
 		F533AC8F6EFA50B03C788676 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7845D7BC15249B84ACD091D /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -27,6 +29,10 @@
 		AA4A7D891BCCA7F9008C78B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA4A7D8B1BCCA7F9008C78B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA4A7D911BCCAC90008C78B8 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		BD1A46C71BCCC42D004951E9 /* PSStyling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSStyling.h; sourceTree = "<group>"; };
+		BD1A46C81BCCC42D004951E9 /* PSStyling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSStyling.m; sourceTree = "<group>"; };
+		BD1A46CA1BCCC67C004951E9 /* PSNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNavigationController.h; sourceTree = "<group>"; };
+		BD1A46CB1BCCC67C004951E9 /* PSNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNavigationController.m; sourceTree = "<group>"; };
 		BD5E778D1BCCAA3800287A08 /* PSPixelSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSPixelSelectionViewController.h; sourceTree = "<group>"; };
 		BD5E778E1BCCAA3800287A08 /* PSPixelSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPixelSelectionViewController.m; sourceTree = "<group>"; };
 		F640A2E3600B44002616764C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -68,8 +74,12 @@
 			children = (
 				AA4A7D831BCCA7F9008C78B8 /* AppDelegate.h */,
 				AA4A7D841BCCA7F9008C78B8 /* AppDelegate.m */,
+				BD1A46CA1BCCC67C004951E9 /* PSNavigationController.h */,
+				BD1A46CB1BCCC67C004951E9 /* PSNavigationController.m */,
 				BD5E778D1BCCAA3800287A08 /* PSPixelSelectionViewController.h */,
 				BD5E778E1BCCAA3800287A08 /* PSPixelSelectionViewController.m */,
+				BD1A46C71BCCC42D004951E9 /* PSStyling.h */,
+				BD1A46C81BCCC42D004951E9 /* PSStyling.m */,
 				AA4A7D861BCCA7F9008C78B8 /* Assets.xcassets */,
 				AA4A7D881BCCA7F9008C78B8 /* LaunchScreen.storyboard */,
 				AA4A7D8B1BCCA7F9008C78B8 /* Info.plist */,
@@ -226,7 +236,9 @@
 			files = (
 				AA4A7D851BCCA7F9008C78B8 /* AppDelegate.m in Sources */,
 				AA4A7D821BCCA7F9008C78B8 /* main.m in Sources */,
+				BD1A46CC1BCCC67C004951E9 /* PSNavigationController.m in Sources */,
 				BD5E778F1BCCAA3800287A08 /* PSPixelSelectionViewController.m in Sources */,
+				BD1A46C91BCCC42D004951E9 /* PSStyling.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
