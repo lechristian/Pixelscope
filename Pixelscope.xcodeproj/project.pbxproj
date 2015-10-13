@@ -13,6 +13,7 @@
 		AA4A7D8A1BCCA7F9008C78B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA4A7D881BCCA7F9008C78B8 /* LaunchScreen.storyboard */; };
 		AA4A7D921BCCAC90008C78B8 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = AA4A7D911BCCAC90008C78B8 /* Podfile */; settings = {ASSET_TAGS = (); }; };
 		F533AC8F6EFA50B03C788676 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7845D7BC15249B84ACD091D /* libPods.a */; };
+		BD5E778F1BCCAA3800287A08 /* PixelSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5E778E1BCCAA3800287A08 /* PixelSelectionViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,8 @@
 		AA4A7D8B1BCCA7F9008C78B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA4A7D911BCCAC90008C78B8 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		F640A2E3600B44002616764C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		BD5E778D1BCCAA3800287A08 /* PixelSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixelSelectionViewController.h; sourceTree = "<group>"; };
+		BD5E778E1BCCAA3800287A08 /* PixelSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixelSelectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +68,8 @@
 			children = (
 				AA4A7D831BCCA7F9008C78B8 /* AppDelegate.h */,
 				AA4A7D841BCCA7F9008C78B8 /* AppDelegate.m */,
+				BD5E778D1BCCAA3800287A08 /* PixelSelectionViewController.h */,
+				BD5E778E1BCCAA3800287A08 /* PixelSelectionViewController.m */,
 				AA4A7D861BCCA7F9008C78B8 /* Assets.xcassets */,
 				AA4A7D881BCCA7F9008C78B8 /* LaunchScreen.storyboard */,
 				AA4A7D8B1BCCA7F9008C78B8 /* Info.plist */,
@@ -221,6 +226,7 @@
 			files = (
 				AA4A7D851BCCA7F9008C78B8 /* AppDelegate.m in Sources */,
 				AA4A7D821BCCA7F9008C78B8 /* main.m in Sources */,
+				BD5E778F1BCCAA3800287A08 /* PixelSelectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

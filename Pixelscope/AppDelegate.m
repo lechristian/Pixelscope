@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#import "PixelSelectionViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -20,6 +22,9 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[PixelSelectionViewController alloc] init]];
+    
+    
     return YES;
 }
 
