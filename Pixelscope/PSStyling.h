@@ -11,9 +11,9 @@
 
 @interface PSStyling : NSObject
 
-+ (UIColor *)lightBlueColor;
-+ (UIColor *)midBlueColor;
-+ (UIColor *)darkBlueColor;
++ (UIColor *)accentColor;
++ (UIColor *)lightAccentColor;
++ (UIColor *)darkAccentColor;
 + (UIColor *)navigationBarFontColor;
 
 @end

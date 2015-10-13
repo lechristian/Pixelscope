@@ -13,7 +13,7 @@
 @implementation PSNavigationController
 
 - (void)viewDidLoad {
-    self.navigationBar.barTintColor = [PSStyling darkBlueColor];
+    self.navigationBar.barTintColor = [PSStyling darkAccentColor];
     self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[PSStyling navigationBarFontColor]};
     self.navigationBar.translucent = NO;
     self.navigationBar.barStyle = UIBarStyleBlack;

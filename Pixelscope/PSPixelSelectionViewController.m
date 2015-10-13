@@ -23,7 +23,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         self.title = @"Pixelscope";
-        self.view.backgroundColor = [PSStyling lightBlueColor];
+        self.view.backgroundColor = [PSStyling lightAccentColor];
 
         _pickerController = [[UIImagePickerController alloc] init];
         _pixelImageView = [[UIImageView alloc] init];
