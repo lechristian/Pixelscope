@@ -10,7 +10,7 @@
 
 #import "PSStyling.h"
 
-@interface PSSelectionViewController () <UIImagePickerControllerDelegate>
+@interface PSSelectionViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property UIImagePickerController *pickerController;
 @property UIImageView *pixelImageView;
@@ -28,6 +28,8 @@
         _pickerController = [[UIImagePickerController alloc] init];
         _pixelImageView = [[UIImageView alloc] init];
         _presetsTableView = [[UITableView alloc] init];
+
+        _pickerController.delegate = self;
 
         // ImageView Selector
         [_pixelImageView setUserInteractionEnabled:YES];
@@ -58,7 +60,9 @@
 #pragma mark UIImagePickerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-
+    UIImage *selectedImage = info[UIImagePickerControllerOriginalImage];
+    self.pixelImageView.image = selectedImage;
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark InstallConstraints
@@ -67,9 +71,11 @@
     NSDictionary *views = NSDictionaryOfVariableBindings(_pixelImageView, _presetsTableView);
     _pixelImageView.translatesAutoresizingMaskIntoConstraints = NO;
     _presetsTableView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[_pixelImageView]-[_presetsTableView]-|" options:0 metrics:nil views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[_pixelImageView]-|" options:0 metrics:nil views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[_presetsTableView]-|" options:0 metrics:nil views:views]];
+    NSDictionary *metrics = @{@"vertPadding": @(15)};
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-vertPadding-[_pixelImageView]-[_presetsTableView]-vertPadding-|" options:0 metrics:metrics views:views]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:_pixelImageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:_pixelImageView attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[_pixelImageView]-|" options:0 metrics:metrics views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[_presetsTableView]-|" options:0 metrics:metrics views:views]];
 }
 
 @end

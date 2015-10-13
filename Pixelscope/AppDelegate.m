@@ -23,7 +23,7 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    self.window.rootViewController = [[PSNavigationController alloc] initWithRootViewController:[[PSPixelSelectionViewController alloc] init]];
+    self.window.rootViewController = [[PSNavigationController alloc] initWithRootViewController:[[PSSelectionViewController alloc] init]];
     return YES;
 }
 
