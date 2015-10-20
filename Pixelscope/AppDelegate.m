@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 
 #import "PSNavigationController.h"
-#import "PSPixelSelectionViewController.h"
+#import "PSSelectionViewController.h"
 
 @interface AppDelegate ()
 

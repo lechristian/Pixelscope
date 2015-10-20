@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PSPixelSelectionViewController : UIViewController
+@interface PSSelectionViewController : UIViewController
 
 @end

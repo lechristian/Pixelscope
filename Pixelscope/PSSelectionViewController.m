@@ -6,11 +6,11 @@
 //  Copyright © 2015 innovativedesign. All rights reserved.
 //
 
-#import "PSPixelSelectionViewController.h"
+#import "PSSelectionViewController.h"
 
 #import "PSStyling.h"
 
-@interface PSPixelSelectionViewController () <UIImagePickerControllerDelegate>
+@interface PSSelectionViewController () <UIImagePickerControllerDelegate>
 
 @property UIImagePickerController *pickerController;
 @property UIImageView *pixelImageView;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation PSPixelSelectionViewController
+@implementation PSSelectionViewController
 
 - (instancetype)init {
     if (self = [super init]) {
