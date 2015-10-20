@@ -7,12 +7,30 @@
 //
 
 #import "PSConnectViewController.h"
+#import "PSStyling.h"
 
 @interface PSConnectViewController ()
+
+@property UITableView *availableDevicesTableView;
 
 @end
 
 @implementation PSConnectViewController
+
+- (instancetype)init {
+    if (self = [super init]) {
+        self.title = @"Available Connections";
+        self.view.backgroundColor = [PSStyling lightAccentColor];
+        
+        _availableDevicesTableView = [[UITableView alloc] init];
+        
+        [self.view addSubview:_availableDevicesTableView];
+        
+        [self _installConstraints];
+    }
+    
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,15 +41,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+         
+- (void)_installConstraints {
+    NSDictionary *views = NSDictionaryOfVariableBindings(_availableDevicesTableView);
+    _availableDevicesTableView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[_availableDevicesTableView]-|" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[_availableDevicesTableView]-|" options:0 metrics:nil views:views]];
 }
-*/
 
 @end
