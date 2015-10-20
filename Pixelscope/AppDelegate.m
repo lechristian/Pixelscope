@@ -10,6 +10,7 @@
 
 #import "PSNavigationController.h"
 #import "PSSelectionViewController.h"
+#import "PSConnectViewController.h"
 
 @interface AppDelegate ()
 
@@ -23,7 +24,7 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    self.window.rootViewController = [[PSNavigationController alloc] initWithRootViewController:[[PSPixelSelectionViewController alloc] init]];
+    self.window.rootViewController = [[PSNavigationController alloc] initWithRootViewController:[[PSConnectViewController alloc] init]];
     return YES;
 }
 
