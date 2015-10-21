@@ -16,6 +16,8 @@
 		BD1A46C91BCCC42D004951E9 /* PSStyling.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1A46C81BCCC42D004951E9 /* PSStyling.m */; settings = {ASSET_TAGS = (); }; };
 		BD1A46CC1BCCC67C004951E9 /* PSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1A46CB1BCCC67C004951E9 /* PSNavigationController.m */; settings = {ASSET_TAGS = (); }; };
 		BD5E778F1BCCAA3800287A08 /* PSSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5E778E1BCCAA3800287A08 /* PSSelectionViewController.m */; settings = {ASSET_TAGS = (); }; };
+		BDD7D4DE1BD7573F001FF11B /* PSPatternDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD7D4DD1BD7573F001FF11B /* PSPatternDataSource.m */; settings = {ASSET_TAGS = (); }; };
+		BDF933411BD5E6CF0042AFC4 /* PSPixelImage.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF933401BD5E6CF0042AFC4 /* PSPixelImage.m */; settings = {ASSET_TAGS = (); }; };
 		F533AC8F6EFA50B03C788676 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7845D7BC15249B84ACD091D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +40,10 @@
 		BD1A46CB1BCCC67C004951E9 /* PSNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNavigationController.m; sourceTree = "<group>"; };
 		BD5E778D1BCCAA3800287A08 /* PSSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSSelectionViewController.h; sourceTree = "<group>"; };
 		BD5E778E1BCCAA3800287A08 /* PSSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSSelectionViewController.m; sourceTree = "<group>"; };
+		BDD7D4DC1BD7573F001FF11B /* PSPatternDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSPatternDataSource.h; sourceTree = "<group>"; };
+		BDD7D4DD1BD7573F001FF11B /* PSPatternDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPatternDataSource.m; sourceTree = "<group>"; };
+		BDF9333F1BD5E6CF0042AFC4 /* PSPixelImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSPixelImage.h; sourceTree = "<group>"; };
+		BDF933401BD5E6CF0042AFC4 /* PSPixelImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPixelImage.m; sourceTree = "<group>"; };
 		F640A2E3600B44002616764C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +87,10 @@
 				AA06AB681BD5DF7B00137D17 /* PSConnectViewController.m */,
 				BD1A46CA1BCCC67C004951E9 /* PSNavigationController.h */,
 				BD1A46CB1BCCC67C004951E9 /* PSNavigationController.m */,
+				BDF9333F1BD5E6CF0042AFC4 /* PSPixelImage.h */,
+				BDF933401BD5E6CF0042AFC4 /* PSPixelImage.m */,
+				BDD7D4DC1BD7573F001FF11B /* PSPatternDataSource.h */,
+				BDD7D4DD1BD7573F001FF11B /* PSPatternDataSource.m */,
 				BD5E778D1BCCAA3800287A08 /* PSSelectionViewController.h */,
 				BD5E778E1BCCAA3800287A08 /* PSSelectionViewController.m */,
 				BD1A46C71BCCC42D004951E9 /* PSStyling.h */,
@@ -239,9 +249,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDD7D4DE1BD7573F001FF11B /* PSPatternDataSource.m in Sources */,
 				AA4A7D851BCCA7F9008C78B8 /* AppDelegate.m in Sources */,
 				AA4A7D821BCCA7F9008C78B8 /* main.m in Sources */,
 				BD1A46CC1BCCC67C004951E9 /* PSNavigationController.m in Sources */,
+				BDF933411BD5E6CF0042AFC4 /* PSPixelImage.m in Sources */,
 				BD5E778F1BCCAA3800287A08 /* PSSelectionViewController.m in Sources */,
 				AA06AB691BD5DF7B00137D17 /* PSConnectViewController.m in Sources */,
 				BD1A46C91BCCC42D004951E9 /* PSStyling.m in Sources */,
