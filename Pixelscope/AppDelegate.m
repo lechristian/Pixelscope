@@ -10,6 +10,7 @@
 
 #import "PSNavigationController.h"
 #import "PSSelectionViewController.h"
+#import "PSConnectViewController.h"
 
 @interface AppDelegate ()
 
@@ -24,6 +25,8 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     self.window.rootViewController = [[PSNavigationController alloc] initWithRootViewController:[[PSSelectionViewController alloc] init]];
+    // Switch over when we want to start connecting to the blue bean
+    // self.window.rootViewController = [[PSNavigationController alloc] initWithRootViewController:[[PSConnectViewController alloc] init]];
     return YES;
 }
 
