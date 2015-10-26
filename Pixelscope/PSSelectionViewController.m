@@ -12,6 +12,9 @@
 #import "PSPixelImage.h"
 #import "PSStyling.h"
 
+#import "PTDBeanManager.h"
+
+@import AVFoundation;
 @import QuartzCore;
 
 
@@ -24,6 +27,10 @@
 @property (strong, nonatomic) CAGradientLayer *gradientLayer;
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) UIImagePickerController *pickerController;
+
+@property (nonatomic, strong) UIButton *pixelStartButton;
+
+@property (nonatomic, strong) PTDBeanManager *beanManager;
 
 @end
 
@@ -38,6 +45,10 @@
 
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(_pickPhotoFromGallery)];
         [self.navigationItem.rightBarButtonItem setTintColor:[UIColor whiteColor]];
+        
+        // Bean
+        self.bean.delegate = self;
+        [self.bean releaseSerialGate];
 
         _pixelImage = [[PSPixelImage alloc] init];
         _dataSource = [[PSPatternDataSource alloc] init];
@@ -51,6 +62,14 @@
         _dataSource.delegate = self;
         _tableView.delegate = _dataSource;
         _tableView.dataSource = _dataSource;
+        
+        _pixelStartButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        [_pixelStartButton setTitle:@"Start" forState:UIControlStateNormal];
+        [_pixelStartButton setTitle:@"Started" forState:UIControlStateDisabled];
+        [_pixelStartButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_pixelStartButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
+        [_pixelStartButton addTarget:self action:@selector(sendPixelImageToBean) forControlEvents:UIControlEventTouchUpInside];
+        [_pixelStartButton setTranslatesAutoresizingMaskIntoConstraints:NO];
 
         // ImageView Selector
         [_pixelView setUserInteractionEnabled:YES];
@@ -62,6 +81,7 @@
         [self.pixelView.layer insertSublayer:_gradientLayer atIndex:0];
         [self.view addSubview:_pixelView];
         [self.view addSubview:_tableView];
+        [self.view addSubview:_pixelStartButton];
 
         [self _installConstraints];
     }
@@ -109,19 +129,41 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark Bean Delegate
+
+- (void)bean:(PTDBean *)bean serialDataReceived:(NSData *)data {
+    if (((uint8_t *)data.bytes)[0] == 0x01) {
+        //TODO: Handle data receieved
+    }
+}
+
+#pragma mark Selectors
+
+- (void)sendPixelImageToBean {
+    // Disable button until image is over
+    _pixelStartButton.enabled = NO;
+    // Send pixels to bean
+}
+
 #pragma mark Constraints
 
 - (void)_installConstraints
 {
-    NSDictionary *views = NSDictionaryOfVariableBindings(_pixelView, _tableView);
+    NSDictionary *views = NSDictionaryOfVariableBindings(_pixelView, _tableView, _pixelStartButton);
     _pixelView.translatesAutoresizingMaskIntoConstraints = NO;
     _tableView.translatesAutoresizingMaskIntoConstraints = NO;
-    NSDictionary *metrics = @{ @"innerPadding" : @(15),
-                               @"marginPadding" : @(20) };
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-marginPadding-[_pixelView]-marginPadding-[_tableView]-marginPadding-|" options:0 metrics:metrics views:views]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:_pixelView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:_pixelView attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0]];
+    NSDictionary *metrics = @{
+                              @"innerPadding" : @(15),
+                              @"marginPadding" : @(20)
+                              };
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-marginPadding-[_pixelView]-marginPadding-[_tableView]-marginPadding-[_pixelStartButton]-marginPadding-|"
+                                                                      options:0
+                                                                      metrics:metrics
+                                                                        views:views]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:_pixelView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:_pixelView attribute:NSLayoutAttributeHeight multiplier:1 constant:0]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[_pixelView]-|" options:0 metrics:metrics views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[_tableView]-|" options:0 metrics:metrics views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[_pixelStartButton]-|" options:0 metrics:metrics views:views]];
 }
 
 @end

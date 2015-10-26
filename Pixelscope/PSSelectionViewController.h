@@ -8,7 +8,11 @@
 
 @import UIKit;
 
+#import "PTDBean.h"
 
-@interface PSSelectionViewController : UIViewController
+
+@interface PSSelectionViewController : UIViewController <PTDBeanDelegate>
+
+@property (strong, nonatomic) PTDBean *bean;
 
 @end

@@ -13,6 +13,8 @@
 #import "PTDBeanManager.h"
 #import "PTDBean.h"
 
+#import "PSSelectionViewController.h"
+
 static NSString *PSAvailableBeanCellIdentifier = @"PSAvailableBeanCellIdentifier";
 
 @interface PSConnectViewController () <PTDBeanManagerDelegate, PTDBeanDelegate, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate>
@@ -141,7 +143,10 @@ static NSString *PSAvailableBeanCellIdentifier = @"PSAvailableBeanCellIdentifier
         [alert addAction:defaultAction];
         [self presentViewController:alert animated:YES completion:nil];
     } else {
-        NSLog(@"connected to %@", bean.name);
+        PSSelectionViewController *selectionViewController = [[PSSelectionViewController alloc] init];
+        selectionViewController.bean = bean;
+        
+        [self.navigationController pushViewController:selectionViewController animated:YES];
     }
 }
 
