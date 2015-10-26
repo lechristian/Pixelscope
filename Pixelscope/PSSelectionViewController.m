@@ -32,6 +32,8 @@
 
 @property (nonatomic, strong) PTDBeanManager *beanManager;
 
+@property (nonatomic) NSInteger pixelColumn;
+
 @end
 
 
@@ -70,6 +72,8 @@
         [_pixelStartButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
         [_pixelStartButton addTarget:self action:@selector(sendPixelImageToBean) forControlEvents:UIControlEventTouchUpInside];
         [_pixelStartButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+        
+        _pixelColumn = 0;
 
         // ImageView Selector
         [_pixelView setUserInteractionEnabled:YES];
@@ -131,18 +135,33 @@
 
 #pragma mark Bean Delegate
 
+- (void)bean:(PTDBean *)bean didUpdateScratchBank:(NSInteger)bank data:(NSData *)data {
+    NSString *dataAsString = [NSString stringWithUTF8String:[data bytes]];
+    NSString *bankAsString = [@(bank) stringValue];
+    NSString *msg = [NSString stringWithFormat:@"Received data: %@ on bank: %@", dataAsString, bankAsString];
+    NSLog(@"%@", msg);
+}
+
 - (void)bean:(PTDBean *)bean serialDataReceived:(NSData *)data {
-    if (((uint8_t *)data.bytes)[0] == 0x01) {
-        //TODO: Handle data receieved
+    if (((uint8_t*)data.bytes)[0] == 0x01) {
+        [self sendPixelImageToBean];
     }
 }
 
-#pragma mark Selectors
+#pragma mark Send Pixels to Bean
 
 - (void)sendPixelImageToBean {
     // Disable button until image is over
     _pixelStartButton.enabled = NO;
-    // Send pixels to bean
+  
+    for (int i = 0; i < 3; i += 1) {
+        [_bean setScratchBank:(i + 1) data:[[NSData alloc] initWithBytes:0 length:20]];
+    }
+    
+    _pixelColumn += 1;
+//    if (_pixelColumn == end) {
+//        _pixelStartButton.enabled = YES;
+//    }
 }
 
 #pragma mark Constraints
