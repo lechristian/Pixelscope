@@ -97,6 +97,7 @@
 - (void)updatePixelImageForPattern:(Pattern)pattern
 {
     self.pixelImage.pattern = pattern;
+    self.pixelImage.image = nil;
     self.pixelView.image = nil;
 
     if (pattern == PatternNone) {

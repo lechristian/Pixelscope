@@ -25,6 +25,7 @@ typedef NS_ENUM(NSUInteger, Pattern) {
 
 @interface PSPixelImage : NSObject
 
+@property (nonatomic) UIImage *image;
 @property (nonatomic) Pattern pattern;
 
 - (NSArray<UIColor *> *)getColors;
